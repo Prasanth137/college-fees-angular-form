@@ -1,0 +1,96 @@
+<style>
+    button:enabled {
+    background-color: #3CBC8D;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3CBC8D;
+    color: white;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #3CBC8D;
+    color: white;
+  }
+  h1{
+    color:blue;
+  }
+  </style>
+
+
+  
+
+    <h1>Student College Fees Calculation</h1>
+  
+    <form [formGroup]="feesForm" (ngSubmit)="submitForm(feesForm.value)">
+  
+        
+  
+            <label for="fullName">Enter Your Full Name</label><br>
+  
+            <input type="text" id="fullName" formControlName = "fullName"   required>
+           
+            
+            
+  
+       
+  
+        <pre></pre>
+  
+        
+  
+            <label for="branch">Branch</label><br>
+  
+            <select id="branch" formControlName = "branch"   required >
+
+              <option value="">Please select Branch</option>
+              <option>Electrical and Electronics Engineering</option>
+              <option>Electronics and Communication Engineering</option>
+              <option>Mechanical Engineering</option>
+              <option>Computer Science Engineering</option>
+              <option>Civil Engineering</option>
+              <option>Agricultural Engineering</option>
+            </select>    
+  
+          
+        <pre></pre>
+  
+        
+  
+            <label for="hostellerOrDayScholar">Are you a Day Scholar or Hosteller? (College Fees:35000 Rupees, Hostel Fees:15000 Rupees)</label><br>
+  
+            <select id="hostellerOrDayScholar" formControlName = "hostellerOrDayScholar"   required >
+              <option value="">Please select Day Scholar or Hosteller Option</option>
+              <option value="Day Scholar">Day Scholar</option>
+              <option value="Hosteller">Hosteller</option>
+              
+            </select> 
+  
+        
+  
+        <pre></pre>
+  
+        
+        <pre></pre>
+  
+        <button  type="submit" [disabled]="!feesForm.valid">Submit</button>
+        <p *ngIf="showFeesInfo">{{fullName}} selected {{branch}} & the Total Fees for a {{hostellerOrDayScholar}} is {{totalFees}} rupees</p>
+    </form>
+  
+  
+
